@@ -19,7 +19,7 @@ function App() {
       <div className="relative z-10">
         <Hero
           name="Muhammed Naveeth"
-          title="Full Stack Developer"
+          title="Mobile App Developer"
           photoUrl="src/assets/naveeth.jpg"
         />
         
