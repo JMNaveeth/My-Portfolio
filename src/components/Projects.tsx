@@ -24,23 +24,22 @@ const projects: Project[] = [
   {
     title: "Blood Connect App",
     description: " Developed a mobile application to connect blood donors with recipients,streamlining the process of finding and matching donors efficiently",
-    image: "https://via.placeholder.com/600x400",
-    technologies: ["Next.js", "Node.js", "MongoDB", "Stripe", "Redux"],
+    image: "src/assets/blood.png",
+    technologies: ["React Native", "Node.js", "Express.js", "MySQL"],
     liveUrl: "https://project2.demo",
-    githubUrl: "https://github.com/username/project2",
+    githubUrl: "https://github.com/JMNaveeth/Blood_Connect-App",
     features: ["Payment Integration", "Real-time Updates", "Admin Dashboard", "Analytics"]
   },
   {
-    title: "Social Media Dashboard",
-    description: "Comprehensive social media management and analytics dashboard",
-    image: "https://via.placeholder.com/600x400",
-    technologies: ["Vue.js", "Express", "PostgreSQL", "Socket.io", "Chart.js"],
+    title: "Grilli Restaurant Website",
+    description: "Created a responsive restaurant website show-casing menu items and chef specials",
+    image: "src/assets/event-1.jpg",
+    technologies: ["HTML", "CSS", "JavaScript"],
     liveUrl: "https://project3.demo",
-    githubUrl: "https://github.com/username/project3",
+    githubUrl: "https://github.com/JMNaveeth/Grilli-",
     features: ["Real-time Analytics", "Multi-platform Integration", "Automated Reports", "Custom Widgets"]
   }
 ];
-
 function Projects() {
   return (
     <section id="projects" className="py-20 relative overflow-hidden">
