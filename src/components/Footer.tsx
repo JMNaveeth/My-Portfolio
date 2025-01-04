@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaArrowUp, FaHeart } from 'react-icons/fa';
+import { FaArrowUp } from 'react-icons/fa';
 import { Link } from 'react-scroll';
 import SocialMediaLinks from './SocialMediaLinks';
 
@@ -82,8 +82,7 @@ function Footer() {
         <motion.div className="border-t border-gray-800 py-8 mt-12">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm flex items-center gap-2">
-              © {new Date().getFullYear()} Portfolio. Made with 
-              <FaHeart className="inline text-red-500" />
+              © {new Date().getFullYear()} Portfolio. Made by Naveeth 
             </p>
             
             <motion.div className="mt-4 md:mt-0">
