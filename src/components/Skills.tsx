@@ -76,7 +76,7 @@ function Skills() {
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skills.map((skill, index) => (
+          {skills.map((skill) => (
             <motion.div
               key={skill.category}
               variants={itemVariants}

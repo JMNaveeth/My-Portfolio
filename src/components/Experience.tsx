@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+/*import { motion } from 'framer-motion';
 import { FaBriefcase, FaCalendar, FaMapMarker } from 'react-icons/fa';
 
 interface Experience {
@@ -153,3 +153,5 @@ function Experience() {
 }
 
 export default Experience;
+
+*/

@@ -1,10 +1,9 @@
-import { motion } from 'framer-motion';
 import AnimatedBackground from './components/AnimatedBackground';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
-import Experience from './components/Experience';
+//import Experience from './components/Experience';
 import Certificates from './components/Certificates';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
@@ -19,13 +18,13 @@ function App() {
       <div className="relative z-10">
         <Hero
           name="Muhammed Naveeth"
-          title="Mobile App Developer"
+          title="Web Developer"
           photoUrl="src/assets/naveeth.jpg"
         />
         
         <About />
         <Skills />
-        <Experience />
+ 
         <Certificates />
 
         <section className="py-20 px-4" id="contact">

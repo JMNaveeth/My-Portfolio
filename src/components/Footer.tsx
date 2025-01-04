@@ -105,7 +105,7 @@ function Footer() {
                     whileHover={{ x: 5 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    {link.to ? (
+                    {'to' in link ? (
                       <Link
                         to={link.to}
                         spy={true}
