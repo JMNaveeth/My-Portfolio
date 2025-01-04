@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
+import Projects from './components/Projects';
 //import Experience from './components/Experience';
 import Certificates from './components/Certificates';
 import ContactForm from './components/ContactForm';
@@ -24,7 +25,7 @@ function App() {
         
         <About />
         <Skills />
- 
+        <Projects />
         <Certificates />
 
         <section className="py-20 px-4" id="contact">
