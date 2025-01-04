@@ -13,17 +13,17 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "AI-Powered Portfolio",
-    description: "A dynamic portfolio website with AI-driven interactions and stunning animations",
-    image: "https://via.placeholder.com/600x400",
-    technologies: ["React", "TypeScript", "Framer Motion", "Tailwind CSS", "Three.js"],
+    title: "TapOn App",
+    description: " Developed a mobile app connecting service providers with customers.",
+    image: "src/assets/logo.png",
+    technologies: ["Flutter", "Dart", "Node.js", "Twilio", "MongoDB"],
     liveUrl: "https://project1.demo",
-    githubUrl: "https://github.com/username/project1",
+    githubUrl: "https://github.com/JMNaveeth/TapOn",
     features: ["AI Chat Integration", "3D Animations", "Dynamic Content", "Responsive Design"]
   },
   {
-    title: "E-Commerce Platform",
-    description: "Full-featured e-commerce platform with real-time inventory management",
+    title: "Blood Connect App",
+    description: " Developed a mobile application to connect blood donors with recipients,streamlining the process of finding and matching donors efficiently",
     image: "https://via.placeholder.com/600x400",
     technologies: ["Next.js", "Node.js", "MongoDB", "Stripe", "Redux"],
     liveUrl: "https://project2.demo",
