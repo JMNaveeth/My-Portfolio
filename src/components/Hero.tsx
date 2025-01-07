@@ -54,7 +54,7 @@ function Hero({ name, title, photoUrl }: HeroProps) {
                 Get in Touch
               </a>
               <a
-                href="https://drive.google.com/file/d/1oYMDcNlK136nFT3X0fuKplMaDPwJsqtB/view?usp=sharing"
+                href="https://drive.google.com/file/d/1KimyNQcHs4AEvVfgshsMOLy8-yIcH__p/view?usp=sharing"
                 className="bg-transparent border-2 border-blue-600 hover:bg-blue-600/10 text-white px-8 py-3 rounded-full transition-colors inline-block"
               >
                 View CV

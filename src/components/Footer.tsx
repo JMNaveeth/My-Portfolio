@@ -19,7 +19,7 @@ function Footer() {
     {
       title: "Resources",
       links: [
-        { name: "View CV", url: "https://drive.google.com/file/d/1oYMDcNlK136nFT3X0fuKplMaDPwJsqtB/view?usp=sharing", download: true },
+        { name: "View CV", url: "https://drive.google.com/file/d/1KimyNQcHs4AEvVfgshsMOLy8-yIcH__p/view?usp=sharing", download: true },
         { name: "Blog", url: "#" },
         { name: "Projects", url: "#projects" }
       ]

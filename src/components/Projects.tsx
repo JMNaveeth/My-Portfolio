@@ -24,7 +24,7 @@ const projects: Project[] = [
   {
     title: "Blood Connect App",
     description: " Developed a mobile application to connect blood donors with recipients,streamlining the process of finding and matching donors efficiently",
-    image: "https://drive.google.com/file/d/1xOftQVoTqpndQEUST3pEWl901bZ7rR06/view?usp=sharing",
+    image: "https://drive.google.com/file/d/1xOftQVoTqpndQEUST3pEWl901bZ7rR06/view?usp=drive_link",
     technologies: ["React Native", "Node.js", "Express.js", "MySQL"],
     liveUrl: "https://project2.demo",
     githubUrl: "https://github.com/JMNaveeth/Blood_Connect-App",
