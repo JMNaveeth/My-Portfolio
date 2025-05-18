@@ -54,7 +54,7 @@ function Hero({ name, title, photoUrl }: HeroProps) {
                 Get in Touch
               </a>
               <a
-                href="public/assets/naveeth.jpg"
+                href="public/assets/Muhammed Naveeth-CV  mobile.pdf"
                 className="bg-transparent border-2 border-blue-600 hover:bg-blue-600/10 text-white px-8 py-3 rounded-full transition-colors inline-block"
               >
                 View CV
