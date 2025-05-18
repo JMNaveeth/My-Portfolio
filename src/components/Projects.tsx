@@ -15,7 +15,7 @@ const projects: Project[] = [
   {
     title: "TapOn App",
     description: " Developed a mobile app connecting service providers with customers.",
-    image: "src/assets/logo.png",
+    image: "/My-Portfolio/logo.png",
     technologies: ["Flutter", "Dart", "Node.js", "Twilio", "MongoDB"],
     liveUrl: "https://project1.demo",
     githubUrl: "https://github.com/JMNaveeth/TapOn",
@@ -24,7 +24,7 @@ const projects: Project[] = [
   {
     title: "Blood Connect App",
     description: " Developed a mobile application to connect blood donors with recipients,streamlining the process of finding and matching donors efficiently",
-    image: "/blood.png",
+    image: "/My-Portfolio/blood.png",
     technologies: ["React Native", "Node.js", "Express.js", "MySQL"],
     liveUrl: "https://project2.demo",
     githubUrl: "https://github.com/JMNaveeth/Blood_Connect-App",
@@ -33,7 +33,7 @@ const projects: Project[] = [
   {
     title: "Grilli Restaurant Website",
     description: "Created a responsive restaurant website show-casing menu items and chef specials",
-    image: "src/assets/event-1.jpg",
+    image: "/My-Portfolio/event-1.jpg",
     technologies: ["HTML", "CSS", "JavaScript"],
     liveUrl: "https://project3.demo",
     githubUrl: "https://github.com/JMNaveeth/Grilli-",
