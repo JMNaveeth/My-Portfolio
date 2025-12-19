@@ -1,12 +1,11 @@
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaCode } from 'react-icons/fa';
+import { FaGithub, FaCode } from 'react-icons/fa';
 
 interface Project {
   title: string;
   description: string;
   image: string;
   technologies: string[];
-  liveUrl: string;
   githubUrl: string;
   features: string[];
 }
@@ -17,7 +16,6 @@ const projects: Project[] = [
     description: " Developed a mobile app connecting service providers with customers.",
     image: "src/assets/logo.png",
     technologies: ["Flutter", "Dart", "Node.js", "Twilio", "MongoDB"],
-    liveUrl: "https://project1.demo",
     githubUrl: "https://github.com/JMNaveeth/TapOn",
     features: ["AI Chat Integration", "3D Animations", "Dynamic Content", "Responsive Design"]
   },
@@ -26,7 +24,6 @@ const projects: Project[] = [
     description: " Developed a mobile application to connect blood donors with recipients,streamlining the process of finding and matching donors efficiently",
     image: "src/assets/blood.png",
     technologies: ["React Native", "Node.js", "Express.js", "MySQL"],
-    liveUrl: "https://project2.demo",
     githubUrl: "https://github.com/JMNaveeth/Blood_Connect-App",
     features: ["Payment Integration", "Real-time Updates", "Admin Dashboard", "Analytics"]
   },
@@ -35,11 +32,11 @@ const projects: Project[] = [
     description: "Created a responsive restaurant website show-casing menu items and chef specials",
     image: "src/assets/event-1.jpg",
     technologies: ["HTML", "CSS", "JavaScript"],
-    liveUrl: "https://project3.demo",
     githubUrl: "https://github.com/JMNaveeth/Grilli-",
     features: ["Real-time Analytics", "Multi-platform Integration", "Automated Reports", "Custom Widgets"]
   }
 ];
+
 function Projects() {
   return (
     <section id="projects" className="py-20 relative overflow-hidden">
@@ -122,27 +119,17 @@ function Projects() {
                   ))}
                 </ul>
 
-                {/* Action Buttons */}
-                <div className="flex gap-4">
-                  <motion.a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex-1 flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
-                  >
-                    <FaExternalLinkAlt /> Live Demo
-                  </motion.a>
+                {/* Action Button - Centered */}
+                <div className="flex justify-center">
                   <motion.a
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex-1 flex items-center justify-center gap-2 bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-colors"
+                    className="flex items-center justify-center gap-2 bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-lg transition-colors"
                   >
-                    <FaGithub /> Code
+                    <FaGithub /> View Code
                   </motion.a>
                 </div>
               </div>
