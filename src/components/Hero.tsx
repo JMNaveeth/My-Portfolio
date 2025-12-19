@@ -10,10 +10,7 @@ interface HeroProps {
 
 function Hero({ name, title, photoUrl }: HeroProps) {
   return (
-<section
-  id="home"
-  className="min-h-screen pt-6 flex items-center justify-center relative overflow-hidden"
->
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-black/50" />
         <div className="absolute inset-0">
