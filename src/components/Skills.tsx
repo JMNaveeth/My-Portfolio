@@ -5,22 +5,22 @@ const skills = [
   {
     category: "Frontend",
     icon: <FaReact className="text-4xl text-blue-500" />,
-    technologies: ["React", "Next.js", "Vue", "TypeScript", "Tailwind CSS"]
+    technologies: ["React", "Dart", "Next.js", "HTML", "Tailwind CSS"]
   },
   {
     category: "Backend",
     icon: <FaNodeJs className="text-4xl text-green-500" />,
-    technologies: ["Node.js", "Express", "NestJS", "Python", "Java"]
+    technologies: ["Node.js", "Express", "Python"]
   },
   {
     category: "Database",
     icon: <FaDatabase className="text-4xl text-yellow-500" />,
-    technologies: ["MongoDB", "PostgreSQL", "MySQL", "Redis", "Firebase"]
+    technologies: ["MongoDB", "MySQL", "Firebase"]
   },
   {
     category: "Cloud",
     icon: <FaCloud className="text-4xl text-purple-500" />,
-    technologies: ["AWS", "Azure", "GCP", "Docker", "Kubernetes"]
+    technologies: ["AWS", "Azure", "Docker"]
   },
   {
     category: "Mobile",
@@ -30,7 +30,7 @@ const skills = [
   {
     category: "Tools",
     icon: <FaTools className="text-4xl text-orange-500" />,
-    technologies: ["Git", "CI/CD", "Jest", "Webpack", "Vite"]
+    technologies: ["Git", "CI/CD", "Webpack", "Vite"]
   }
 ];
 
