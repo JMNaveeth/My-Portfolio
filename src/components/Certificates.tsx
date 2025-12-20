@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { ExternalLink, Award, Filter, X, Calendar, CheckCircle, Search } from 'lucide-react';
+import { ExternalLink, Award, Filter, X, Calendar, CheckCircle, Search, Trophy, ChevronDown } from 'lucide-react';
 
 interface Certificate {
   id: string;
@@ -245,16 +245,16 @@ const certificates: Certificate[] = [
   }
 ];
 
-// Special Achievement Certificate (Separate Section)
-const specialCertificate: Certificate = {
-  id: "special-1",
-  title: "ITUM International Research Conference 2024 - Poster Presentation",
+// Special Achievement Certificate
+const researchCertificate: Certificate = {
+  id: "research-1",
+  title: "ITUM International Research Conference 2024",
   issuer: "Institute of Technology University of Moratuwa",
   date: "Dec 2024",
   image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
   verifyLink: "#",
-  skills: ["Research", "Innovation", "Sustainable Engineering", "Mobile Solutions", "Entrepreneurship"],
-  category: "Research & Achievement",
+  skills: ["Research", "Innovation", "Sustainable Engineering", "Mobile Solutions"],
+  category: "Research",
   certificateCode: "ITUM-IRC-2024"
 };
 
@@ -264,6 +264,7 @@ function Certificates() {
   const [selectedCert, setSelectedCert] = useState<Certificate | null>(null);
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
+  const [showAll, setShowAll] = useState(false);
 
   const filteredCertificates = certificates.filter(cert => {
     const matchesCategory = activeCategory === "All" || cert.category === activeCategory;
@@ -273,8 +274,10 @@ function Certificates() {
     return matchesCategory && matchesSearch;
   });
 
+  const displayedCertificates = showAll ? filteredCertificates : filteredCertificates.slice(0, 6);
+
   return (
-    <section id="certificates" className="py-20 bg-gradient-to-b from-black to-blue-900/20 relative overflow-hidden">
+    <section id="certificates" className="py-16 bg-gradient-to-b from-black to-blue-900/20 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl" />
@@ -282,89 +285,47 @@ function Certificates() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Special Achievement Section */}
+        {/* Research Achievement Highlight */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-16"
+          transition={{ duration: 0.6 }}
+          className="mb-12"
         >
-          <div className="bg-gradient-to-r from-yellow-500/10 via-orange-500/10 to-red-500/10 border-2 border-yellow-500/30 rounded-3xl p-8 backdrop-blur-lg">
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <Award className="text-yellow-500 w-10 h-10" />
-              <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">
-                Featured Achievement
-              </h3>
-              <Award className="text-yellow-500 w-10 h-10" />
-            </div>
+          <div className="relative bg-gradient-to-r from-yellow-600/20 via-orange-600/20 to-red-600/20 border border-yellow-500/30 rounded-2xl p-6 backdrop-blur-lg overflow-hidden">
+            <div className="absolute top-0 right-0 w-40 h-40 bg-yellow-500/10 rounded-full blur-3xl" />
             
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-              className="bg-gradient-to-br from-gray-800/90 to-gray-900/90 rounded-2xl overflow-hidden border border-yellow-500/20 shadow-2xl"
-            >
-              <div className="grid md:grid-cols-2 gap-6 p-6">
-                <div className="relative h-64 md:h-full overflow-hidden rounded-xl">
-                  <img
-                    src={specialCertificate.image}
-                    alt={specialCertificate.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="px-4 py-2 bg-yellow-500 text-black font-bold rounded-full text-sm shadow-lg">
-                      🏆 RESEARCH CONFERENCE
-                    </span>
-                  </div>
+            <div className="grid md:grid-cols-3 gap-6 items-center relative z-10">
+              <div className="md:col-span-2">
+                <div className="flex items-center gap-3 mb-3">
+                  <Trophy className="text-yellow-500 w-8 h-8" />
+                  <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">
+                    Research Achievement
+                  </h3>
                 </div>
-                
-                <div className="flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-start gap-3 mb-4">
-                      <Award className="text-yellow-500 w-8 h-8 mt-1 flex-shrink-0" />
-                      <div>
-                        <h4 className="text-2xl font-bold text-white mb-2 leading-tight">
-                          {specialCertificate.title}
-                        </h4>
-                        <p className="text-gray-300 text-lg mb-2">{specialCertificate.issuer}</p>
-                        <div className="flex items-center gap-2 text-yellow-400">
-                          <Calendar className="w-4 h-4" />
-                          <span className="font-semibold">{specialCertificate.date}</span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="bg-gray-900/50 rounded-lg p-4 mb-4 border border-gray-700/50">
-                      <p className="text-sm text-gray-400 mb-2">Project Title</p>
-                      <p className="text-white font-semibold">
-                        "A unified service delivery platform for micro-entrepreneur one-stop mobile solution to improve economic sustainability"
-                      </p>
-                    </div>
-
-                    <div className="mb-4">
-                      <p className="text-sm text-gray-400 mb-2">Research Areas</p>
-                      <div className="flex flex-wrap gap-2">
-                        {specialCertificate.skills.map((skill) => (
-                          <span
-                            key={skill}
-                            className="px-3 py-1 bg-gradient-to-r from-yellow-900/40 to-orange-900/40 border border-yellow-600/50 rounded-full text-sm text-yellow-200 font-medium"
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={() => setSelectedCert(specialCertificate)}
-                    className="w-full bg-gradient-to-r from-yellow-600 to-orange-600 hover:from-yellow-700 hover:to-orange-700 text-white px-6 py-3 rounded-full font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-                  >
-                    <ExternalLink className="w-5 h-5" />
-                    View Full Certificate
-                  </button>
+                <h4 className="text-xl font-bold text-white mb-2">{researchCertificate.title}</h4>
+                <p className="text-gray-300 mb-3">{researchCertificate.issuer}</p>
+                <p className="text-sm text-gray-400 mb-3">
+                  "A unified service delivery platform for micro-entrepreneur one-stop mobile solution to improve economic sustainability"
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {researchCertificate.skills.map((skill) => (
+                    <span key={skill} className="px-3 py-1 bg-yellow-900/30 border border-yellow-600/40 rounded-full text-xs text-yellow-200">
+                      {skill}
+                    </span>
+                  ))}
                 </div>
               </div>
-            </motion.div>
+              <div className="flex justify-center">
+                <button
+                  onClick={() => setSelectedCert(researchCertificate)}
+                  className="bg-gradient-to-r from-yellow-600 to-orange-600 hover:from-yellow-700 hover:to-orange-700 text-white px-6 py-3 rounded-full font-semibold flex items-center gap-2 shadow-lg transition-all duration-300 transform hover:scale-105"
+                >
+                  <ExternalLink className="w-5 h-5" />
+                  View Certificate
+                </button>
+              </div>
+            </div>
           </div>
         </motion.div>
 
@@ -373,72 +334,68 @@ function Certificates() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-8"
         >
-          <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
+          <h2 className="text-4xl font-bold mb-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
             Professional Certificates
           </h2>
-          <p className="text-gray-400 text-lg">
-            Continuous learning and professional development
-          </p>
-          <div className="flex items-center justify-center gap-2 mt-4">
-            <Award className="text-yellow-500 w-8 h-8" />
-            <span className="text-2xl font-bold text-white">{certificates.length + 1}</span>
-            <span className="text-gray-400">Certificates Earned</span>
+          <p className="text-gray-400">Continuous learning journey</p>
+          <div className="flex items-center justify-center gap-2 mt-3">
+            <Award className="text-yellow-500 w-6 h-6" />
+            <span className="text-xl font-bold text-white">{certificates.length + 1}</span>
+            <span className="text-gray-400 text-sm">Total Certificates</span>
           </div>
         </motion.div>
 
-        {/* Search Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="max-w-2xl mx-auto mb-8"
-        >
-          <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
-            <input
-              type="text"
-              placeholder="Search certificates, skills, or issuers..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-12 py-4 bg-gray-800/50 border border-gray-700/50 rounded-full text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors backdrop-blur-lg"
-            />
-            {searchTerm && (
+        {/* Search and Filter */}
+        <div className="max-w-4xl mx-auto mb-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mb-4"
+          >
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input
+                type="text"
+                placeholder="Search certificates..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-12 pr-12 py-3 bg-gray-800/50 border border-gray-700/50 rounded-full text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors backdrop-blur-lg"
+              />
+              {searchTerm && (
+                <button
+                  onClick={() => setSearchTerm("")}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              )}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex flex-wrap justify-center gap-2"
+          >
+            {categories.map((category) => (
               <button
-                onClick={() => setSearchTerm("")}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                  activeCategory === category
+                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
+                    : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 border border-gray-700/30'
+                }`}
               >
-                <X className="w-5 h-5" />
-              </button>
-            )}
-          </div>
-        </motion.div>
-
-        {/* Category Filter */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
-        >
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-                activeCategory === category
-                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg scale-105'
-                  : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 border border-gray-700/30'
-              }`}
-            >
-              <div className="flex items-center gap-2">
-                <Filter className="w-4 h-4" />
                 {category}
-              </div>
-            </button>
-          ))}
-        </motion.div>
+              </button>
+            ))}
+          </motion.div>
+        </div>
 
         {/* Certificates Grid */}
         <AnimatePresence mode="wait">
@@ -448,81 +405,58 @@ function Certificates() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8"
           >
-            {filteredCertificates.map((cert, index) => (
+            {displayedCertificates.map((cert, index) => (
               <motion.div
                 key={cert.id}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                whileHover={{ scale: 1.03, y: -5 }}
-                className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-2xl overflow-hidden backdrop-blur-lg border border-gray-700/30 shadow-xl hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 group"
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                whileHover={{ y: -5 }}
+                className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-xl overflow-hidden backdrop-blur-lg border border-gray-700/30 shadow-lg hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 group cursor-pointer"
+                onClick={() => setSelectedCert(cert)}
               >
-                {/* Image Section */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-40 overflow-hidden">
                   <img
                     src={cert.image}
                     alt={cert.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                  
-                  {/* Overlay Button */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <button
-                      onClick={() => setSelectedCert(cert)}
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full flex items-center gap-2 transform scale-90 group-hover:scale-100 transition-transform shadow-lg"
-                    >
-                      <ExternalLink className="w-4 h-4" /> View Details
-                    </button>
-                  </div>
-
-                  {/* Category Badge */}
-                  <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1 bg-blue-600/90 backdrop-blur-sm text-white text-xs font-semibold rounded-full">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                  <div className="absolute top-3 right-3">
+                    <span className="px-2 py-1 bg-blue-600/90 backdrop-blur-sm text-white text-xs font-semibold rounded-full">
                       {cert.category}
                     </span>
                   </div>
                 </div>
 
-                {/* Content Section */}
-                <div className="p-6">
-                  <div className="flex items-start gap-3 mb-3">
-                    <Award className="text-yellow-500 w-5 h-5 mt-1 flex-shrink-0" />
-                    <h3 className="text-lg font-bold text-white leading-tight line-clamp-2 group-hover:text-blue-400 transition-colors">
+                <div className="p-4">
+                  <div className="flex items-start gap-2 mb-2">
+                    <Award className="text-yellow-500 w-4 h-4 mt-1 flex-shrink-0" />
+                    <h3 className="text-sm font-bold text-white leading-tight line-clamp-2 group-hover:text-blue-400 transition-colors">
                       {cert.title}
                     </h3>
                   </div>
                   
-                  <div className="flex items-center gap-2 text-gray-400 text-sm mb-4">
+                  <div className="flex items-center gap-2 text-gray-400 text-xs mb-3">
                     <span className="font-medium">{cert.issuer}</span>
                     <span>•</span>
-                    <div className="flex items-center gap-1">
-                      <Calendar className="w-3 h-3" />
-                      {cert.date}
-                    </div>
+                    <span>{cert.date}</span>
                   </div>
-
-                  {cert.certificateCode && (
-                    <div className="mb-4 px-3 py-2 bg-gray-900/50 rounded-lg border border-gray-700/30">
-                      <p className="text-xs text-gray-500">Certificate Code</p>
-                      <p className="text-sm font-mono text-blue-400">{cert.certificateCode}</p>
-                    </div>
-                  )}
                   
-                  <div className="flex flex-wrap gap-2">
-                    {cert.skills.slice(0, 3).map((skill) => (
+                  <div className="flex flex-wrap gap-1">
+                    {cert.skills.slice(0, 2).map((skill) => (
                       <span
                         key={skill}
-                        className="px-3 py-1 bg-blue-900/30 border border-blue-700/30 rounded-full text-xs text-blue-300 font-medium"
+                        className="px-2 py-0.5 bg-blue-900/30 border border-blue-700/30 rounded-full text-xs text-blue-300"
                       >
                         {skill}
                       </span>
                     ))}
-                    {cert.skills.length > 3 && (
-                      <span className="px-3 py-1 bg-purple-900/30 border border-purple-700/30 rounded-full text-xs text-purple-300 font-medium">
-                        +{cert.skills.length - 3} more
+                    {cert.skills.length > 2 && (
+                      <span className="px-2 py-0.5 bg-purple-900/30 border border-purple-700/30 rounded-full text-xs text-purple-300">
+                        +{cert.skills.length - 2}
                       </span>
                     )}
                   </div>
@@ -532,20 +466,33 @@ function Certificates() {
           </motion.div>
         </AnimatePresence>
 
-        {/* No Results Message */}
+        {/* Show More/Less Button */}
+        {filteredCertificates.length > 6 && (
+          <div className="text-center">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-full font-semibold flex items-center gap-2 mx-auto shadow-lg transition-all duration-300 transform hover:scale-105"
+            >
+              {showAll ? 'Show Less' : `View All ${filteredCertificates.length} Certificates`}
+              <ChevronDown className={`w-5 h-5 transition-transform ${showAll ? 'rotate-180' : ''}`} />
+            </button>
+          </div>
+        )}
+
+        {/* No Results */}
         {filteredCertificates.length === 0 && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-center py-20"
+            className="text-center py-12"
           >
-            <p className="text-gray-400 text-lg">No certificates found matching your criteria.</p>
+            <p className="text-gray-400">No certificates found.</p>
             <button
               onClick={() => {
                 setSearchTerm("");
                 setActiveCategory("All");
               }}
-              className="mt-4 px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-colors"
+              className="mt-3 px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-colors text-sm"
             >
               Clear Filters
             </button>
@@ -568,10 +515,9 @@ function Certificates() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", duration: 0.5 }}
-              className="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl max-w-4xl w-full border border-gray-700 shadow-2xl max-h-[90vh] overflow-y-auto relative"
+              className="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-2xl max-w-3xl w-full border border-gray-700 shadow-2xl max-h-[90vh] overflow-y-auto relative"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button */}
               <button
                 onClick={() => setSelectedCert(null)}
                 className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-10"
@@ -579,53 +525,62 @@ function Certificates() {
                 <X className="w-6 h-6" />
               </button>
 
-              {/* Image */}
               <img
                 src={selectedCert.image}
                 alt={selectedCert.title}
-                className="w-full h-64 object-cover rounded-xl mb-6 shadow-lg"
+                className="w-full h-48 object-cover rounded-xl mb-4 shadow-lg"
               />
 
-              {/* Title and Badge */}
-              <div className="flex items-start justify-between mb-4">
+              <div className="flex items-start justify-between mb-3">
                 <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <Award className="text-yellow-500 w-8 h-8" />
-                    <h3 className="text-3xl font-bold text-white">{selectedCert.title}</h3>
+                  <div className="flex items-center gap-2 mb-2">
+                    {selectedCert.id === 'research-1' ? (
+                      <Trophy className="text-yellow-500 w-7 h-7" />
+                    ) : (
+                      <Award className="text-yellow-500 w-7 h-7" />
+                    )}
+                    <h3 className="text-2xl font-bold text-white">{selectedCert.title}</h3>
                   </div>
-                  <div className="flex items-center gap-3 text-gray-400 mb-4">
-                    <span className="font-medium text-lg">{selectedCert.issuer}</span>
+                  <div className="flex items-center gap-2 text-gray-400 mb-3">
+                    <span className="font-medium">{selectedCert.issuer}</span>
                     <span>•</span>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
                       <span>{selectedCert.date}</span>
                     </div>
                   </div>
                 </div>
-                <span className="px-4 py-2 bg-blue-600 text-white rounded-full font-semibold">
+                <span className="px-3 py-1 bg-blue-600 text-white rounded-full text-sm font-semibold">
                   {selectedCert.category}
                 </span>
               </div>
 
-              {/* Certificate Code */}
               {selectedCert.certificateCode && (
-                <div className="mb-6 p-4 bg-gray-800/50 rounded-lg border border-gray-700">
-                  <p className="text-sm text-gray-400 mb-1">Certificate Code</p>
-                  <p className="text-lg font-mono text-blue-400 font-semibold">{selectedCert.certificateCode}</p>
+                <div className="mb-4 p-3 bg-gray-800/50 rounded-lg border border-gray-700">
+                  <p className="text-xs text-gray-400 mb-1">Certificate Code</p>
+                  <p className="text-sm font-mono text-blue-400 font-semibold">{selectedCert.certificateCode}</p>
                 </div>
               )}
 
-              {/* Skills */}
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold mb-3 text-white flex items-center gap-2">
-                  <CheckCircle className="text-green-500 w-5 h-5" />
-                  Skills Acquired
+              {selectedCert.id === 'research-1' && (
+                <div className="mb-4 p-3 bg-yellow-900/20 rounded-lg border border-yellow-700/30">
+                  <p className="text-xs text-gray-400 mb-1">Research Project</p>
+                  <p className="text-sm text-white">
+                    "A unified service delivery platform for micro-entrepreneur one-stop mobile solution to improve economic sustainability"
+                  </p>
+                </div>
+              )}
+
+              <div className="mb-4">
+                <h4 className="text-sm font-semibold mb-2 text-white flex items-center gap-2">
+                  <CheckCircle className="text-green-500 w-4 h-4" />
+                  Skills & Topics
                 </h4>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2">
                   {selectedCert.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-4 py-2 bg-gradient-to-r from-blue-900/40 to-purple-900/40 border border-blue-700/50 rounded-full text-sm text-white font-medium"
+                      className="px-3 py-1 bg-gradient-to-r from-blue-900/40 to-purple-900/40 border border-blue-700/50 rounded-full text-sm text-white"
                     >
                       {skill}
                     </span>
@@ -633,15 +588,18 @@ function Certificates() {
                 </div>
               </div>
 
-              {/* Verify Button */}
               <div className="flex justify-end">
                 <a
                   href={selectedCert.verifyLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-full flex items-center gap-3 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  className={`${
+                    selectedCert.id === 'research-1'
+                      ? 'bg-gradient-to-r from-yellow-600 to-orange-600 hover:from-yellow-700 hover:to-orange-700'
+                      : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700'
+                  } text-white px-6 py-2 rounded-full flex items-center gap-2 shadow-lg transition-all duration-300 transform hover:scale-105`}
                 >
-                  <ExternalLink className="w-5 h-5" />
+                  <ExternalLink className="w-4 h-4" />
                   <span className="font-semibold">Verify Certificate</span>
                 </a>
               </div>
