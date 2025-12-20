@@ -248,17 +248,20 @@ const certificates: Certificate[] = [
 // Special Achievement Certificate
 const researchCertificate: Certificate = {
   id: "research-1",
-  title: "ITUM International Research Conference 2024",
+  title: "ITUM International Research Conference 2024 - Poster Presentation",
   issuer: "Institute of Technology University of Moratuwa",
   date: "Dec 2024",
   image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
   verifyLink: "#",
-  skills: ["Research", "Innovation", "Sustainable Engineering", "Mobile Solutions"],
+  skills: ["Research", "Innovation", "Sustainable Engineering", "Mobile Solutions", "Entrepreneurship"],
   category: "Research",
   certificateCode: "ITUM-IRC-2024"
 };
 
-const categories = ["All", "AI/ML", "Design", "Programming", "Web Development", "Mobile Development", "DevOps", "Data Science", "Management"];
+// Combine all certificates with research first
+const allCertificates = [researchCertificate, ...certificates];
+
+const categories = ["All", "Research", "AI/ML", "Design", "Programming", "Web Development", "Mobile Development", "DevOps", "Data Science", "Management"];
 
 function Certificates() {
   const [selectedCert, setSelectedCert] = useState<Certificate | null>(null);
@@ -266,7 +269,7 @@ function Certificates() {
   const [searchTerm, setSearchTerm] = useState("");
   const [showAll, setShowAll] = useState(false);
 
-  const filteredCertificates = certificates.filter(cert => {
+  const filteredCertificates = allCertificates.filter(cert => {
     const matchesCategory = activeCategory === "All" || cert.category === activeCategory;
     const matchesSearch = cert.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          cert.issuer.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -285,50 +288,6 @@ function Certificates() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Research Achievement Highlight */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
-        >
-          <div className="relative bg-gradient-to-r from-yellow-600/20 via-orange-600/20 to-red-600/20 border border-yellow-500/30 rounded-2xl p-6 backdrop-blur-lg overflow-hidden">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-yellow-500/10 rounded-full blur-3xl" />
-            
-            <div className="grid md:grid-cols-3 gap-6 items-center relative z-10">
-              <div className="md:col-span-2">
-                <div className="flex items-center gap-3 mb-3">
-                  <Trophy className="text-yellow-500 w-8 h-8" />
-                  <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">
-                    Research Achievement
-                  </h3>
-                </div>
-                <h4 className="text-xl font-bold text-white mb-2">{researchCertificate.title}</h4>
-                <p className="text-gray-300 mb-3">{researchCertificate.issuer}</p>
-                <p className="text-sm text-gray-400 mb-3">
-                  "A unified service delivery platform for micro-entrepreneur one-stop mobile solution to improve economic sustainability"
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {researchCertificate.skills.map((skill) => (
-                    <span key={skill} className="px-3 py-1 bg-yellow-900/30 border border-yellow-600/40 rounded-full text-xs text-yellow-200">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="flex justify-center">
-                <button
-                  onClick={() => setSelectedCert(researchCertificate)}
-                  className="bg-gradient-to-r from-yellow-600 to-orange-600 hover:from-yellow-700 hover:to-orange-700 text-white px-6 py-3 rounded-full font-semibold flex items-center gap-2 shadow-lg transition-all duration-300 transform hover:scale-105"
-                >
-                  <ExternalLink className="w-5 h-5" />
-                  View Certificate
-                </button>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -342,7 +301,7 @@ function Certificates() {
           <p className="text-gray-400">Continuous learning journey</p>
           <div className="flex items-center justify-center gap-2 mt-3">
             <Award className="text-yellow-500 w-6 h-6" />
-            <span className="text-xl font-bold text-white">{certificates.length + 1}</span>
+            <span className="text-xl font-bold text-white">{allCertificates.length}</span>
             <span className="text-gray-400 text-sm">Total Certificates</span>
           </div>
         </motion.div>
@@ -414,9 +373,22 @@ function Certificates() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
                 whileHover={{ y: -5 }}
-                className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-xl overflow-hidden backdrop-blur-lg border border-gray-700/30 shadow-lg hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 group cursor-pointer"
+                className={`${
+                  cert.id === 'research-1'
+                    ? 'bg-gradient-to-br from-yellow-900/40 to-orange-900/40 border-2 border-yellow-500/50 shadow-yellow-500/20'
+                    : 'bg-gradient-to-br from-gray-800/80 to-gray-900/80 border border-gray-700/30'
+                } rounded-xl overflow-hidden backdrop-blur-lg shadow-lg hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 group cursor-pointer relative`}
                 onClick={() => setSelectedCert(cert)}
               >
+                {cert.id === 'research-1' && (
+                  <div className="absolute top-2 left-2 z-10">
+                    <div className="bg-yellow-500 text-black px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg">
+                      <Trophy className="w-3 h-3" />
+                      RESEARCH
+                    </div>
+                  </div>
+                )}
+                
                 <div className="relative h-40 overflow-hidden">
                   <img
                     src={cert.image}
@@ -425,7 +397,9 @@ function Certificates() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                   <div className="absolute top-3 right-3">
-                    <span className="px-2 py-1 bg-blue-600/90 backdrop-blur-sm text-white text-xs font-semibold rounded-full">
+                    <span className={`px-2 py-1 backdrop-blur-sm text-white text-xs font-semibold rounded-full ${
+                      cert.id === 'research-1' ? 'bg-yellow-600/90' : 'bg-blue-600/90'
+                    }`}>
                       {cert.category}
                     </span>
                   </div>
@@ -433,8 +407,16 @@ function Certificates() {
 
                 <div className="p-4">
                   <div className="flex items-start gap-2 mb-2">
-                    <Award className="text-yellow-500 w-4 h-4 mt-1 flex-shrink-0" />
-                    <h3 className="text-sm font-bold text-white leading-tight line-clamp-2 group-hover:text-blue-400 transition-colors">
+                    {cert.id === 'research-1' ? (
+                      <Trophy className="text-yellow-500 w-4 h-4 mt-1 flex-shrink-0" />
+                    ) : (
+                      <Award className="text-yellow-500 w-4 h-4 mt-1 flex-shrink-0" />
+                    )}
+                    <h3 className={`text-sm font-bold leading-tight line-clamp-2 transition-colors ${
+                      cert.id === 'research-1'
+                        ? 'text-yellow-100 group-hover:text-yellow-300'
+                        : 'text-white group-hover:text-blue-400'
+                    }`}>
                       {cert.title}
                     </h3>
                   </div>
@@ -449,7 +431,11 @@ function Certificates() {
                     {cert.skills.slice(0, 2).map((skill) => (
                       <span
                         key={skill}
-                        className="px-2 py-0.5 bg-blue-900/30 border border-blue-700/30 rounded-full text-xs text-blue-300"
+                        className={`px-2 py-0.5 rounded-full text-xs ${
+                          cert.id === 'research-1'
+                            ? 'bg-yellow-900/30 border border-yellow-700/30 text-yellow-300'
+                            : 'bg-blue-900/30 border border-blue-700/30 text-blue-300'
+                        }`}
                       >
                         {skill}
                       </span>
