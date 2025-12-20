@@ -48,6 +48,16 @@ const certificates: Certificate[] = [
   },
   {
     id: "4",
+    title: "Machine Learning with Python",
+    issuer: "European Open University",
+    date: "Sep 2023",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=600&fit=crop",
+    verifyLink: "#",
+    skills: ["Machine Learning", "Python", "Algorithms", "Data Analysis"],
+    category: "AI/ML"
+  },
+  {
+    id: "5",
     title: "Introduction to Python",
     issuer: "Sololearn",
     date: "Nov 2023",
@@ -58,7 +68,18 @@ const certificates: Certificate[] = [
     certificateCode: "CC-AGF3HW1Y"
   },
   {
-    id: "5",
+    id: "6",
+    title: "Introduction to HTML",
+    issuer: "Sololearn",
+    date: "Nov 2023",
+    image: "https://images.unsplash.com/photo-1621839673705-6617adf9e890?w=800&h=600&fit=crop",
+    verifyLink: "#",
+    skills: ["HTML", "Web Development", "Frontend"],
+    category: "Web Development",
+    certificateCode: "CC-S2ACYHZY"
+  },
+  {
+    id: "7",
     title: "PHP Course Basics",
     issuer: "TutorialsPoint",
     date: "Sep 2023",
@@ -69,7 +90,40 @@ const certificates: Certificate[] = [
     certificateCode: "TP-KZST4FWL"
   },
   {
-    id: "6",
+    id: "8",
+    title: "Best Programming Practices",
+    issuer: "TutorialsPoint",
+    date: "Sep 2023",
+    image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=800&h=600&fit=crop",
+    verifyLink: "https://verify.tutorialspoint.com",
+    skills: ["Clean Code", "Best Practices", "Software Engineering"],
+    category: "Programming",
+    certificateCode: "TP-NOPW2OZN"
+  },
+  {
+    id: "9",
+    title: "Free Blender Crash Course",
+    issuer: "TutorialsPoint",
+    date: "Sep 2023",
+    image: "https://images.unsplash.com/photo-1633412802994-5c058f151b66?w=800&h=600&fit=crop",
+    verifyLink: "https://verify.tutorialspoint.com",
+    skills: ["Blender", "3D Modeling", "Animation", "Graphics"],
+    category: "Design",
+    certificateCode: "TP-JE0VWD0N"
+  },
+  {
+    id: "10",
+    title: "Data Science - Fundamentals of Statistics",
+    issuer: "TutorialsPoint",
+    date: "Sep 2023",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+    verifyLink: "https://verify.tutorialspoint.com",
+    skills: ["Statistics", "Data Science", "Data Analysis", "Mathematics"],
+    category: "Data Science",
+    certificateCode: "TP-7KQBN5Q5"
+  },
+  {
+    id: "11",
     title: "Mobile App Development - Android App Development for Beginners",
     issuer: "SkillUp",
     date: "Sep 2023",
@@ -80,7 +134,18 @@ const certificates: Certificate[] = [
     certificateCode: "4512023"
   },
   {
-    id: "7",
+    id: "12",
+    title: "Python for Beginners",
+    issuer: "SkillUp",
+    date: "Sep 2023",
+    image: "https://images.unsplash.com/photo-1624953587687-daf255b6b80a?w=800&h=600&fit=crop",
+    verifyLink: "#",
+    skills: ["Python", "Programming Basics", "Syntax"],
+    category: "Programming",
+    certificateCode: "4511908"
+  },
+  {
+    id: "13",
     title: "DevOps 101: What is DevOps?",
     issuer: "Great Learning",
     date: "Dec 2024",
@@ -88,11 +153,112 @@ const certificates: Certificate[] = [
     verifyLink: "https://verify.mygreatlearning.com/CCPETNRI",
     skills: ["DevOps", "CI/CD", "Cloud", "Automation"],
     category: "DevOps",
-    certificateCode: "7669626"
+    certificateCode: "CCPETNRI"
+  },
+  {
+    id: "14",
+    title: "CI/CD for Beginners",
+    issuer: "Great Learning",
+    date: "Dec 2024",
+    image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&h=600&fit=crop",
+    verifyLink: "https://verify.mygreatlearning.com/PRGKITEP",
+    skills: ["CI/CD", "DevOps", "Automation", "Deployment"],
+    category: "DevOps",
+    certificateCode: "PRGKITEP"
+  },
+  {
+    id: "15",
+    title: "Java Programming",
+    issuer: "Great Learning",
+    date: "2023",
+    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop",
+    verifyLink: "https://verify.mygreatlearning.com/ABSITBOT",
+    skills: ["Java", "OOP", "Programming", "Backend"],
+    category: "Programming",
+    certificateCode: "ABSITBOT"
+  },
+  {
+    id: "16",
+    title: "Advanced Course 1",
+    issuer: "Great Learning",
+    date: "2023",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop",
+    verifyLink: "https://verify.mygreatlearning.com/KDQXNFRD",
+    skills: ["Advanced Topics", "Professional Development"],
+    category: "Programming",
+    certificateCode: "KDQXNFRD"
+  },
+  {
+    id: "17",
+    title: "Advanced Course 2",
+    issuer: "Great Learning",
+    date: "2023",
+    image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&h=600&fit=crop",
+    verifyLink: "https://verify.mygreatlearning.com/CWMDIZSL",
+    skills: ["Advanced Topics", "Professional Development"],
+    category: "Programming",
+    certificateCode: "CWMDIZSL"
+  },
+  {
+    id: "18",
+    title: "C Course in Tamil - Jawaharlal Nattanmai",
+    issuer: "TutorialsPoint",
+    date: "Sep 2023",
+    image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=800&h=600&fit=crop",
+    verifyLink: "https://verify.tutorialspoint.com",
+    skills: ["C Programming", "Tamil Language Course"],
+    category: "Programming",
+    certificateCode: "TP-FFRXIKFS"
+  },
+  {
+    id: "19",
+    title: "AutoCAD Comprehensive Training Lectures",
+    issuer: "TutorialsPoint",
+    date: "Sep 2023",
+    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop",
+    verifyLink: "https://verify.tutorialspoint.com",
+    skills: ["AutoCAD", "CAD Design", "Technical Drawing", "3D Modeling"],
+    category: "Design",
+    certificateCode: "TP-ETULXZO6"
+  },
+  {
+    id: "20",
+    title: "Mastering Project Management Fundamentals (Expert Edition)",
+    issuer: "Udemy",
+    date: "Oct 2023",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
+    verifyLink: "https://ude.my/UC-9a64826b-7f89-4f07-bce4-49fe056da4b7",
+    skills: ["Project Management", "Leadership", "Planning", "Team Management"],
+    category: "Management",
+    certificateCode: "UC-9a64826b-7f89-4f07-bce4-49fe056da4b7"
+  },
+  {
+    id: "21",
+    title: "React - Complete Developer Course with Hands-On Projects",
+    issuer: "Udemy",
+    date: "Oct 2023",
+    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=600&fit=crop",
+    verifyLink: "https://ude.my/UC-f3963f9e-5dd7-49d8-9f92-5426f0a912cc",
+    skills: ["React", "JavaScript", "Frontend Development", "Web Development"],
+    category: "Web Development",
+    certificateCode: "UC-f3963f9e-5dd7-49d8-9f92-5426f0a912cc"
   }
 ];
 
-const categories = ["All", "AI/ML", "Design", "Programming", "Mobile Development", "DevOps"];
+// Special Achievement Certificate (Separate Section)
+const specialCertificate: Certificate = {
+  id: "special-1",
+  title: "ITUM International Research Conference 2024 - Poster Presentation",
+  issuer: "Institute of Technology University of Moratuwa",
+  date: "Dec 2024",
+  image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
+  verifyLink: "#",
+  skills: ["Research", "Innovation", "Sustainable Engineering", "Mobile Solutions", "Entrepreneurship"],
+  category: "Research & Achievement",
+  certificateCode: "ITUM-IRC-2024"
+};
+
+const categories = ["All", "AI/ML", "Design", "Programming", "Web Development", "Mobile Development", "DevOps", "Data Science", "Management"];
 
 function Certificates() {
   const [selectedCert, setSelectedCert] = useState<Certificate | null>(null);
@@ -116,6 +282,92 @@ function Certificates() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
+        {/* Special Achievement Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-16"
+        >
+          <div className="bg-gradient-to-r from-yellow-500/10 via-orange-500/10 to-red-500/10 border-2 border-yellow-500/30 rounded-3xl p-8 backdrop-blur-lg">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <Award className="text-yellow-500 w-10 h-10" />
+              <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">
+                Featured Achievement
+              </h3>
+              <Award className="text-yellow-500 w-10 h-10" />
+            </div>
+            
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+              className="bg-gradient-to-br from-gray-800/90 to-gray-900/90 rounded-2xl overflow-hidden border border-yellow-500/20 shadow-2xl"
+            >
+              <div className="grid md:grid-cols-2 gap-6 p-6">
+                <div className="relative h-64 md:h-full overflow-hidden rounded-xl">
+                  <img
+                    src={specialCertificate.image}
+                    alt={specialCertificate.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-4 py-2 bg-yellow-500 text-black font-bold rounded-full text-sm shadow-lg">
+                      🏆 RESEARCH CONFERENCE
+                    </span>
+                  </div>
+                </div>
+                
+                <div className="flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-start gap-3 mb-4">
+                      <Award className="text-yellow-500 w-8 h-8 mt-1 flex-shrink-0" />
+                      <div>
+                        <h4 className="text-2xl font-bold text-white mb-2 leading-tight">
+                          {specialCertificate.title}
+                        </h4>
+                        <p className="text-gray-300 text-lg mb-2">{specialCertificate.issuer}</p>
+                        <div className="flex items-center gap-2 text-yellow-400">
+                          <Calendar className="w-4 h-4" />
+                          <span className="font-semibold">{specialCertificate.date}</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gray-900/50 rounded-lg p-4 mb-4 border border-gray-700/50">
+                      <p className="text-sm text-gray-400 mb-2">Project Title</p>
+                      <p className="text-white font-semibold">
+                        "A unified service delivery platform for micro-entrepreneur one-stop mobile solution to improve economic sustainability"
+                      </p>
+                    </div>
+
+                    <div className="mb-4">
+                      <p className="text-sm text-gray-400 mb-2">Research Areas</p>
+                      <div className="flex flex-wrap gap-2">
+                        {specialCertificate.skills.map((skill) => (
+                          <span
+                            key={skill}
+                            className="px-3 py-1 bg-gradient-to-r from-yellow-900/40 to-orange-900/40 border border-yellow-600/50 rounded-full text-sm text-yellow-200 font-medium"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={() => setSelectedCert(specialCertificate)}
+                    className="w-full bg-gradient-to-r from-yellow-600 to-orange-600 hover:from-yellow-700 hover:to-orange-700 text-white px-6 py-3 rounded-full font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  >
+                    <ExternalLink className="w-5 h-5" />
+                    View Full Certificate
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -131,7 +383,7 @@ function Certificates() {
           </p>
           <div className="flex items-center justify-center gap-2 mt-4">
             <Award className="text-yellow-500 w-8 h-8" />
-            <span className="text-2xl font-bold text-white">{certificates.length}</span>
+            <span className="text-2xl font-bold text-white">{certificates.length + 1}</span>
             <span className="text-gray-400">Certificates Earned</span>
           </div>
         </motion.div>
