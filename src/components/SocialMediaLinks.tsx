@@ -24,7 +24,7 @@ const socialLinks: SocialLink[] = [
     icon: <FaLinkedin className="text-2xl" />,
     url: "https://linkedin.com",
     label: "LinkedIn",
-    color: "hover:text-blue-500 group-hover:bg-blue-50",
+    color: "hover:text-blue group-hover:bg-blue-900",
     hoverBg: "group-hover:shadow-blue-500/50",
     delay: 0.2
   },
@@ -32,7 +32,7 @@ const socialLinks: SocialLink[] = [
     icon: <FaStackOverflow className="text-2xl" />,
     url: "https://stackoverflow.com",
     label: "Stack Overflow",
-    color: "hover:text-orange-500 group-hover:bg-orange-50",
+    color: "hover:text-orange group-hover:bg-orange-900",
     hoverBg: "group-hover:shadow-orange-500/50",
     delay: 0.3
   },
@@ -40,7 +40,7 @@ const socialLinks: SocialLink[] = [
     icon: <FaDev className="text-2xl" />,
     url: "https://dev.to",
     label: "Dev.to",
-    color: "hover:text-gray-900 group-hover:bg-gray-50",
+    color: "hover:text-gray group-hover:bg-gray-900",
     hoverBg: "group-hover:shadow-gray-500/50",
     delay: 0.4
   },
@@ -48,7 +48,7 @@ const socialLinks: SocialLink[] = [
     icon: <FaMedium className="text-2xl" />,
     url: "https://medium.com",
     label: "Medium",
-    color: "hover:text-gray-900 group-hover:bg-white",
+    color: "hover:text-gray group-hover:bg-gray-900",
     hoverBg: "group-hover:shadow-gray-500/50",
     delay: 0.5
   },
@@ -56,7 +56,7 @@ const socialLinks: SocialLink[] = [
     icon: <FaTwitter className="text-2xl" />,
     url: "https://twitter.com",
     label: "Twitter",
-    color: "hover:text-blue-400 group-hover:bg-blue-50",
+    color: "hover:text-blue group-hover:bg-blue-900",
     hoverBg: "group-hover:shadow-blue-500/50",
     delay: 0.6
   },
@@ -64,7 +64,7 @@ const socialLinks: SocialLink[] = [
     icon: <FaCodepen className="text-2xl" />,
     url: "https://codepen.io",
     label: "CodePen",
-    color: "hover:text-gray-900 group-hover:bg-white",
+    color: "hover:text-gray group-hover:bg-gray-900",
     hoverBg: "group-hover:shadow-gray-500/50",
     delay: 0.7
   }
