@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { ExternalLink, Award, Filter, X, Calendar, CheckCircle, Search, Trophy, ChevronDown } from 'lucide-react';
+import itumResearchCert from "@/assets/certificates/itum-research-2024.jpg";
 
 interface Certificate {
   id: string;
@@ -251,8 +252,8 @@ const researchCertificate: Certificate = {
   title: "ITUM International Research Conference 2024 - Poster Presentation",
   issuer: "Institute of Technology University of Moratuwa",
   date: "Dec 2024",
-  image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
-  verifyLink: "#",
+  image: itumResearchCert,
+  verifyLink: "itum_final_project_ceti.jpg",
   skills: ["Research", "Innovation", "Sustainable Engineering", "Mobile Solutions", "Entrepreneurship"],
   category: "Research",
   certificateCode: "ITUM-IRC-2024"
