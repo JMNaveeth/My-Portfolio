@@ -32,7 +32,7 @@ const certificates: Certificate[] = [
     issuer: "European Open University",
     date: "Dec 2023",
     image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&h=600&fit=crop",
-    verifyLink: "#",
+    verifyLink: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&h=600&fit=crop",
     skills: ["Python", "Deep Learning", "Neural Networks", "TensorFlow"],
     category: "AI/ML"
   },
@@ -252,7 +252,7 @@ const researchCertificate: Certificate = {
   issuer: "Institute of Technology University of Moratuwa",
   date: "Dec 2024",
   image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
-  verifyLink: "#",
+  verifyLink: "https://imgur.com/a/F53K5GS",
   skills: ["Research", "Innovation", "Sustainable Engineering", "Mobile Solutions", "Entrepreneurship"],
   category: "Research",
   certificateCode: "ITUM-IRC-2024"
