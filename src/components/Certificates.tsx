@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { ExternalLink, Award, Filter, X, Calendar, CheckCircle, Search, Trophy, ChevronDown } from 'lucide-react';
-import itumResearchCert from "@/assets/certificates/itum-research-2024.jpg";
 
 interface Certificate {
   id: string;
@@ -33,7 +32,7 @@ const certificates: Certificate[] = [
     issuer: "European Open University",
     date: "Dec 2023",
     image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&h=600&fit=crop",
-    verifyLink: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&h=600&fit=crop",
+    verifyLink: "/certificates/Europe py_deep.png",
     skills: ["Python", "Deep Learning", "Neural Networks", "TensorFlow"],
     category: "AI/ML"
   },
@@ -43,7 +42,7 @@ const certificates: Certificate[] = [
     issuer: "European Open University",
     date: "Sep 2023",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
-    verifyLink: "#",
+    verifyLink: "/certificates/Europe AI.png",
     skills: ["AI", "Machine Learning", "Algorithms", "Data Science"],
     category: "AI/ML"
   },
@@ -53,7 +52,7 @@ const certificates: Certificate[] = [
     issuer: "European Open University",
     date: "Sep 2023",
     image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=600&fit=crop",
-    verifyLink: "#",
+    verifyLink: "/certificates/Europe ML.png",
     skills: ["Machine Learning", "Python", "Algorithms", "Data Analysis"],
     category: "AI/ML"
   },
@@ -63,7 +62,7 @@ const certificates: Certificate[] = [
     issuer: "Sololearn",
     date: "Nov 2023",
     image: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=800&h=600&fit=crop",
-    verifyLink: "#",
+    verifyLink: "/certificates/Sololearn Python.jpg",
     skills: ["Python", "Programming", "Data Structures"],
     category: "Programming",
     certificateCode: "CC-AGF3HW1Y"
@@ -74,7 +73,7 @@ const certificates: Certificate[] = [
     issuer: "Sololearn",
     date: "Nov 2023",
     image: "https://images.unsplash.com/photo-1621839673705-6617adf9e890?w=800&h=600&fit=crop",
-    verifyLink: "#",
+    verifyLink: "/certificates/Sololearn HTML.jpg",
     skills: ["HTML", "Web Development", "Frontend"],
     category: "Web Development",
     certificateCode: "CC-S2ACYHZY"
@@ -129,7 +128,7 @@ const certificates: Certificate[] = [
     issuer: "SkillUp",
     date: "Sep 2023",
     image: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=800&h=600&fit=crop",
-    verifyLink: "#",
+    verifyLink: "/certificates/public/certificates/skillup mobile app development.pdf",
     skills: ["Android", "Mobile Development", "Java", "Kotlin"],
     category: "Mobile Development",
     certificateCode: "4512023"
@@ -140,7 +139,7 @@ const certificates: Certificate[] = [
     issuer: "SkillUp",
     date: "Sep 2023",
     image: "https://images.unsplash.com/photo-1624953587687-daf255b6b80a?w=800&h=600&fit=crop",
-    verifyLink: "#",
+    verifyLink: "/certificates/public/certificates/skillup python for beginners.pdf",
     skills: ["Python", "Programming Basics", "Syntax"],
     category: "Programming",
     certificateCode: "4511908"
@@ -180,7 +179,7 @@ const certificates: Certificate[] = [
   },
   {
     id: "16",
-    title: "Advanced Course 1",
+    title: "OOPs in Java",
     issuer: "Great Learning",
     date: "2023",
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop",
@@ -191,7 +190,7 @@ const certificates: Certificate[] = [
   },
   {
     id: "17",
-    title: "Advanced Course 2",
+    title: "Front End Development - HTML",
     issuer: "Great Learning",
     date: "2023",
     image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&h=600&fit=crop",
@@ -252,8 +251,8 @@ const researchCertificate: Certificate = {
   title: "ITUM International Research Conference 2024 - Poster Presentation",
   issuer: "Institute of Technology University of Moratuwa",
   date: "Dec 2024",
-  image: itumResearchCert,
-  verifyLink: "itum_final_project_ceti.jpg",
+  image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
+  verifyLink: "/certificates/itum-research-2024.jpg",
   skills: ["Research", "Innovation", "Sustainable Engineering", "Mobile Solutions", "Entrepreneurship"],
   category: "Research",
   certificateCode: "ITUM-IRC-2024"
