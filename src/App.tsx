@@ -9,6 +9,7 @@ import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import './App.css';
 import Experience from './components/Experience';
+import naveethPhoto from './assets/naveeth.jpg';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         <Hero
           name="Muhammed Naveeth"
           title="Web Developer"
-          photoUrl="src/assets/naveeth.jpg"
+          photoUrl={naveethPhoto}
         />
         
         <About />

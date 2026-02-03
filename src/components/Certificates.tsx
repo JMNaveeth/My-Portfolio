@@ -128,7 +128,7 @@ const certificates: Certificate[] = [
     issuer: "SkillUp",
     date: "Sep 2023",
     image: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=800&h=600&fit=crop",
-    verifyLink: "/certificates/public/certificates/skillup mobile app development.pdf",
+    verifyLink: "/certificates/skillup mobile app development.pdf",
     skills: ["Android", "Mobile Development", "Java", "Kotlin"],
     category: "Mobile Development",
     certificateCode: "4512023"
@@ -139,7 +139,7 @@ const certificates: Certificate[] = [
     issuer: "SkillUp",
     date: "Sep 2023",
     image: "https://images.unsplash.com/photo-1624953587687-daf255b6b80a?w=800&h=600&fit=crop",
-    verifyLink: "/certificates/public/certificates/skillup python for beginners.pdf",
+    verifyLink: "/certificates/skillup python for beginners.pdf",
     skills: ["Python", "Programming Basics", "Syntax"],
     category: "Programming",
     certificateCode: "4511908"
