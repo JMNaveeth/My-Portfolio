@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Terminal, ArrowUp, Heart } from 'lucide-react';
+import { Terminal, ArrowUp } from 'lucide-react';
 
 function Footer() {
   const canvasRef = useRef<HTMLCanvasElement>(null);

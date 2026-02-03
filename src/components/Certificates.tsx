@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { ExternalLink, Award, Filter, X, Calendar, CheckCircle, Search, Trophy, ChevronDown } from 'lucide-react';
+import { ExternalLink, Award, X, Calendar, CheckCircle, Search, Trophy, ChevronDown } from 'lucide-react';
 
 interface Certificate {
   id: string;
