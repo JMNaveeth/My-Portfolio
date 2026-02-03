@@ -34,6 +34,7 @@ function About() {
           <motion.h2
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5 }}
             className="text-4xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text"
           >
@@ -43,6 +44,7 @@ function About() {
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mb-12"
           >
@@ -60,14 +62,16 @@ function About() {
                 key={item.title}
                 initial={{ y: 40, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
                 className="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl backdrop-blur-sm border border-gray-700/30"
               >
                 <motion.div
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
-                  transition={{ type: "spring", stiffness: 200, delay: index * 0.2 }}
+                  viewport={{ once: true }}
+                  transition={{ type: "spring", stiffness: 200, delay: index * 0.1 }}
                   className="text-3xl mb-4 flex justify-center"
                 >
                   {item.icon}
@@ -81,6 +85,7 @@ function About() {
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: 0.4 }}
             className="mt-12 p-6 bg-blue-600/10 rounded-xl border border-blue-500/20"
           >
