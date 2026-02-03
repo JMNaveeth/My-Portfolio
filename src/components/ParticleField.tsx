@@ -7,8 +7,7 @@ function ParticleField() {
   const ref = useRef<THREE.Points>(null);
   
   const positions = useMemo(() => {
-    // Reduced from 5000 to 2000 particles for better performance
-    const positions = new Float32Array(2000 * 3);
+    const positions = new Float32Array(5000 * 3);
     for (let i = 0; i < positions.length; i += 3) {
       const r = 0.5 + Math.random() * 1;
       const theta = Math.random() * Math.PI * 2;
@@ -23,19 +22,18 @@ function ParticleField() {
 
   useFrame((_state, delta) => {
     if (ref.current) {
-      // Slower rotation for better performance
-      ref.current.rotation.x -= delta / 20;
-      ref.current.rotation.y -= delta / 25;
+      ref.current.rotation.x -= delta / 10;
+      ref.current.rotation.y -= delta / 15;
     }
   });
 
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={positions} stride={3} frustumCulled={true}>
+      <Points ref={ref} positions={positions} stride={3} frustumCulled={false}>
         <PointMaterial
           transparent
           color="#3b82f6"
-          size={0.003}
+          size={0.002}
           sizeAttenuation={true}
           depthWrite={false}
         />

@@ -14,7 +14,8 @@ function AnimatedBackground() {
         className="absolute inset-0"
       >
         <Canvas camera={{ position: [0, 0, 1] }}>
-          <ParticleField />        </Canvas>
+          <ParticleField />
+        </Canvas>
       </motion.div>
 
       <div className="absolute inset-0">
