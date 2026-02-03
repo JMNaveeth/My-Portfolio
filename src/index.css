@@ -19,47 +19,12 @@
 
 html {
   scroll-behavior: smooth;
-  /* Performance optimizations */
-  -webkit-overflow-scrolling: touch;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  /* GPU acceleration hints */
-  transform: translateZ(0);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Performance optimizations for animations */
-* {
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* Optimize fixed elements */
-.fixed {
-  will-change: transform;
-  transform: translateZ(0);
-}
-
-/* Optimize motion components */
-[data-framer-component] {
-  will-change: transform, opacity;
-}
-
-/* Smooth scrolling with hardware acceleration */
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
-}
-
-/* Optimize images */
-img {
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
 }
 
 .animation-delay-2000 {
