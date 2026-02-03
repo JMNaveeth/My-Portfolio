@@ -160,7 +160,7 @@ function Footer() {
           <div className="border-t border-gray-800/50 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <p className="text-gray-400 text-sm flex items-center gap-2">
-                © {new Date().getFullYear()} Portfolio. Made with Naveeth
+                © {new Date().getFullYear()} Portfolio. Made by Naveeth
               </p>
               
               <button
