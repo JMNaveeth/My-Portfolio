@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaCode } from 'react-icons/fa';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaGithub, FaExternalLinkAlt, FaCode, FaTimes } from 'react-icons/fa';
 
 interface Project {
   title: string;
@@ -41,6 +42,7 @@ const projects: Project[] = [
   }
 ];
 function Projects() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   return (
     <section id="projects" className="py-20 relative overflow-hidden">
       {/* Animated Background */}
@@ -73,11 +75,14 @@ function Projects() {
               className="group relative bg-gray-900/50 rounded-xl overflow-hidden backdrop-blur-sm border border-gray-700/30"
             >
               {/* Project Image */}
-              <div className="relative overflow-hidden h-48">
+              <div 
+                className="relative overflow-hidden h-48 cursor-pointer group-hover:opacity-90 transition-opacity"
+                onClick={() => setSelectedImage(project.image)}
+              >
                 <motion.img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover"
+                  className={`w-full h-full ${project.image.includes('logo') ? 'object-contain p-6 bg-gray-950/80' : 'object-cover'}`}
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3 }}
                 />
@@ -161,6 +166,40 @@ function Projects() {
           ))}
         </div>
       </div>
+
+      {/* Image Popup Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-md"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-4xl max-h-[85vh] overflow-hidden rounded-xl bg-gray-900 border border-gray-800 shadow-2xl"
+            >
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/60 text-white hover:bg-black/85 transition-colors border border-gray-700/50"
+              >
+                <FaTimes className="text-xl" />
+              </button>
+              <img
+                src={selectedImage}
+                alt="Project Preview"
+                className="max-w-full max-h-[80vh] object-contain rounded-lg"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
