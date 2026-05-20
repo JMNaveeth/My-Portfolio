@@ -503,93 +503,100 @@ function Certificates() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", duration: 0.5 }}
-              className="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-2xl max-w-3xl w-full border border-gray-700 shadow-2xl max-h-[90vh] overflow-y-auto relative"
+              className="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-2xl max-w-4xl w-full border border-gray-700 shadow-2xl relative flex flex-col md:flex-row gap-6 max-h-[90vh] md:max-h-[85vh] overflow-y-auto md:overflow-visible animate-fade-in"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setSelectedCert(null)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-10"
+                className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-20 bg-gray-900/60 p-1.5 rounded-full border border-gray-700/50"
               >
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5" />
               </button>
 
-              <img
-                src={selectedCert.image}
-                alt={selectedCert.title}
-                className="w-full h-48 object-cover rounded-xl mb-4 shadow-lg"
-              />
+              {/* Left Column: Image */}
+              <div className="w-full md:w-1/2 flex items-center justify-center">
+                <div className="relative aspect-[4/3] w-full bg-black/40 rounded-xl overflow-hidden border border-gray-800/50 flex items-center justify-center shadow-inner">
+                  <img
+                    src={selectedCert.image}
+                    alt={selectedCert.title}
+                    className="max-w-full max-h-full object-contain transition-transform duration-300"
+                  />
+                </div>
+              </div>
 
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-2">
+              {/* Right Column: Details */}
+              <div className="w-full md:w-1/2 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-start gap-2 mb-2 pr-8">
                     {selectedCert.id === 'research-1' ? (
-                      <Trophy className="text-yellow-500 w-7 h-7" />
+                      <Trophy className="text-yellow-500 w-5 h-5 mt-1 flex-shrink-0" />
                     ) : (
-                      <Award className="text-yellow-500 w-7 h-7" />
+                      <Award className="text-yellow-500 w-5 h-5 mt-1 flex-shrink-0" />
                     )}
-                    <h3 className="text-2xl font-bold text-white">{selectedCert.title}</h3>
+                    <h3 className="text-xl font-bold text-white leading-tight">{selectedCert.title}</h3>
                   </div>
-                  <div className="flex items-center gap-2 text-gray-400 mb-3">
+
+                  <div className="flex items-center gap-2 text-gray-400 text-xs mb-4">
                     <span className="font-medium">{selectedCert.issuer}</span>
                     <span>•</span>
                     <div className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
+                      <Calendar className="w-3.5 h-3.5" />
                       <span>{selectedCert.date}</span>
+                    </div>
+                    <span className="ml-auto px-2 py-0.5 bg-blue-600/90 text-white rounded-full text-xs font-semibold">
+                      {selectedCert.category}
+                    </span>
+                  </div>
+
+                  {selectedCert.certificateCode && (
+                    <div className="mb-3 p-2.5 bg-gray-800/30 rounded-lg border border-gray-700/50 flex justify-between items-center">
+                      <span className="text-xs text-gray-400 font-medium">Certificate Code</span>
+                      <span className="text-xs font-mono text-blue-400 font-bold">{selectedCert.certificateCode}</span>
+                    </div>
+                  )}
+
+                  {selectedCert.id === 'research-1' && (
+                    <div className="mb-3 p-3 bg-yellow-900/10 rounded-lg border border-yellow-700/20">
+                      <p className="text-xs text-yellow-400 font-semibold mb-1">Research Project</p>
+                      <p className="text-xs text-gray-300 leading-normal">
+                        "A unified service delivery platform for micro-entrepreneur one-stop mobile solution to improve economic sustainability"
+                      </p>
+                    </div>
+                  )}
+
+                  <div className="mb-4">
+                    <h4 className="text-xs font-semibold mb-2 text-white flex items-center gap-1.5">
+                      <CheckCircle className="text-green-500 w-4 h-4" />
+                      Skills & Topics
+                    </h4>
+                    <div className="flex flex-wrap gap-1.5">
+                      {selectedCert.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-2 py-0.5 bg-gradient-to-r from-blue-900/30 to-purple-900/30 border border-blue-700/30 rounded-full text-xs text-white"
+                        >
+                          {skill}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </div>
-                <span className="px-3 py-1 bg-blue-600 text-white rounded-full text-sm font-semibold">
-                  {selectedCert.category}
-                </span>
-              </div>
 
-              {selectedCert.certificateCode && (
-                <div className="mb-4 p-3 bg-gray-800/50 rounded-lg border border-gray-700">
-                  <p className="text-xs text-gray-400 mb-1">Certificate Code</p>
-                  <p className="text-sm font-mono text-blue-400 font-semibold">{selectedCert.certificateCode}</p>
+                <div className="flex justify-end pt-3 border-t border-gray-805">
+                  <a
+                    href={selectedCert.verifyLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${
+                      selectedCert.id === 'research-1'
+                        ? 'bg-gradient-to-r from-yellow-600 to-orange-600 hover:from-yellow-700 hover:to-orange-700'
+                        : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700'
+                    } text-white px-6 py-2.5 rounded-full flex items-center gap-2 shadow-lg transition-all duration-300 transform hover:scale-105 text-sm`}
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    <span className="font-semibold">Verify Certificate</span>
+                  </a>
                 </div>
-              )}
-
-              {selectedCert.id === 'research-1' && (
-                <div className="mb-4 p-3 bg-yellow-900/20 rounded-lg border border-yellow-700/30">
-                  <p className="text-xs text-gray-400 mb-1">Research Project</p>
-                  <p className="text-sm text-white">
-                    "A unified service delivery platform for micro-entrepreneur one-stop mobile solution to improve economic sustainability"
-                  </p>
-                </div>
-              )}
-
-              <div className="mb-4">
-                <h4 className="text-sm font-semibold mb-2 text-white flex items-center gap-2">
-                  <CheckCircle className="text-green-500 w-4 h-4" />
-                  Skills & Topics
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {selectedCert.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1 bg-gradient-to-r from-blue-900/40 to-purple-900/40 border border-blue-700/50 rounded-full text-sm text-white"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex justify-end">
-                <a
-                  href={selectedCert.verifyLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${
-                    selectedCert.id === 'research-1'
-                      ? 'bg-gradient-to-r from-yellow-600 to-orange-600 hover:from-yellow-700 hover:to-orange-700'
-                      : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700'
-                  } text-white px-6 py-2 rounded-full flex items-center gap-2 shadow-lg transition-all duration-300 transform hover:scale-105`}
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  <span className="font-semibold">Verify Certificate</span>
-                </a>
               </div>
             </motion.div>
           </motion.div>
