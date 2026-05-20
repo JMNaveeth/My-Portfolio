@@ -7,7 +7,7 @@ function ExperienceEducation() {
       company: 'Sri Lanka Telecom',
       position: 'Mobile App Developer',
       period: 'Mar 2025 - Sep 2025',
-      location: 'Sri Lanka',
+      location: 'Sri Lanka, Colombo',
       description: 'Developed enterprise-level telecommunications applications for telecom subscribers',
       achievements: [
         'Developed cross-platform mobile applications using Flutter and Dart',
