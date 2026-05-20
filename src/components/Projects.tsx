@@ -5,7 +5,7 @@ import { FaGithub, FaExternalLinkAlt, FaCode, FaTimes } from 'react-icons/fa';
 interface Project {
   title: string;
   description: string;
-  image: string;
+  image?: string;
   technologies: string[];
   liveUrl: string;
   githubUrl: string;
@@ -18,7 +18,7 @@ const projects: Project[] = [
     description: " Developed a mobile app connecting service providers with customers.",
     image: "/logo.png",
     technologies: ["Flutter", "Dart", "Node.js", "Twilio", "MongoDB"],
-    liveUrl: "https://project1.demo",
+    liveUrl: "https://github.com/JMNaveeth/TapOn",
     githubUrl: "https://github.com/JMNaveeth/TapOn",
     features: ["AI Chat Integration", "3D Animations", "Dynamic Content", "Responsive Design"]
   },
@@ -27,18 +27,18 @@ const projects: Project[] = [
     description: "Luxe Bite is a premium, full-stack restaurant application built with React and Supabase",
     image: "/luxebite.png",
     technologies: ["React 18", "TypeScript", "Vite", "Tailwind CSS", "Supabase (PostgreSQL)", "Framer Motion"],
-    liveUrl: "https://luxebite.demo",
-    githubUrl: "https://github.com/JMNaveeth",
+    liveUrl: "https://naveeth-luxe-bite-restaurant.netlify.app/",
+    githubUrl: "https://github.com/JMNaveeth/Luxe-Bite",
     features: ["Online Ordering & Table Booking", "AI Chatbot Recommendations", "Secure Admin Dashboard", "Real-time Revenue Monitor", "Flying Cart Animation"]
   },
   {
-    title: "Grilli Restaurant Website",
-    description: "Created a responsive restaurant website show-casing menu items and chef specials",
-    image: "/event-1.jpg",
-    technologies: ["HTML", "CSS", "JavaScript"],
-    liveUrl: "https://project3.demo",
-    githubUrl: "https://github.com/JMNaveeth/Grilli-",
-    features: ["Real-time Analytics", "Multi-platform Integration", "Automated Reports", "Custom Widgets"]
+    title: "JK Salon",
+    description: "Built a full-stack React & TypeScript web app with a responsive storefront, secure admin dashboard, and smooth Framer Motion animations across all devices.",
+    image: "/jksalon.png",
+    technologies: ["React 18", "TypeScript", "Vite", "Tailwind CSS", "Supabase (PostgreSQL)", "Framer Motion", "Netlify"],
+    liveUrl: "https://jksalon-naveeth.netlify.app/",
+    githubUrl: "https://github.com/JMNaveeth/JK_Salon",
+    features: ["Responsive Storefront", "Secure Admin Dashboard", "Real-time Booking System", "Supabase Authentication", "Dynamic Content Management"]
   }
 ];
 function Projects() {
@@ -76,17 +76,26 @@ function Projects() {
             >
               {/* Project Image */}
               <div 
-                className="relative overflow-hidden h-48 cursor-pointer group-hover:opacity-90 transition-opacity"
-                onClick={() => setSelectedImage(project.image)}
+                className="relative overflow-hidden h-48 cursor-pointer group-hover:opacity-90 transition-opacity flex items-center justify-center bg-gradient-to-br from-blue-900/30 via-purple-900/30 to-pink-900/30"
+                onClick={() => project.image && setSelectedImage(project.image)}
               >
-                <motion.img
-                  src={project.image}
-                  alt={project.title}
-                  className={`w-full h-full ${project.image.includes('logo') ? 'object-contain p-6 bg-gray-950/80' : 'object-cover'}`}
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {project.image ? (
+                  <>
+                    <motion.img
+                      src={project.image}
+                      alt={project.title}
+                      className={`w-full h-full ${project.image.includes('logo') ? 'object-contain p-6 bg-gray-950/80' : 'object-cover'}`}
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </>
+                ) : (
+                  <div className="flex flex-col items-center justify-center p-6 text-center">
+                    <FaCode className="text-5xl text-blue-400 mb-2 opacity-80" />
+                    <span className="text-xs text-gray-400 font-medium tracking-wider uppercase">{project.title}</span>
+                  </div>
+                )}
               </div>
 
               {/* Project Content */}
