@@ -33,10 +33,10 @@ function ExperienceEducation() {
 
   const education = [
     {
-      degree: 'Bachelor of Information Technology',
+      degree: 'National Diploma in Technology',
       institution: 'Institute of Technology University of Moratuwa (ITUM)',
-      period: '2023 - Present',
-      location: 'Moratuwa, Sri Lanka',
+      period: '2023 - 2026',
+      location: 'Sri Lanka, Colombo',
       description: 'Pursuing degree in Information Technology with focus on software development',
       highlights: [
         'Mobile app development specialization',
@@ -48,7 +48,7 @@ function ExperienceEducation() {
       degree: 'G.C.E Advanced Level - Physical Science',
       institution: 'T/Kin/Kinniya Central College',
       period: '2018 - 2020',
-      location: 'Kinniya, Sri Lanka',
+      location: 'Sri Lanka, Kinniya',
       description: 'Completed Advanced Level examination in Physical Science stream',
       highlights: [
         'Analytical thinking',
