@@ -22,13 +22,13 @@ const projects: Project[] = [
     features: ["AI Chat Integration", "3D Animations", "Dynamic Content", "Responsive Design"]
   },
   {
-    title: "Blood Connect App",
-    description: " Developed a mobile application to connect blood donors with recipients,streamlining the process of finding and matching donors efficiently",
-    image: "/blood.png",
-    technologies: ["React Native", "Node.js", "Express.js", "MySQL"],
-    liveUrl: "https://project2.demo",
-    githubUrl: "https://github.com/JMNaveeth/Blood_Connect-App",
-    features: ["Payment Integration", "Real-time Updates", "Admin Dashboard", "Analytics"]
+    title: "Luxe Bite",
+    description: "Built a full-stack restaurant web app with online ordering, table booking, AI chatbot recommendations, and a flying cart animation for a premium experience.",
+    image: "/luxebite.png",
+    technologies: ["React 18", "TypeScript", "Vite", "Tailwind CSS", "Supabase (PostgreSQL)", "Framer Motion"],
+    liveUrl: "https://luxebite.demo",
+    githubUrl: "https://github.com/JMNaveeth",
+    features: ["Online Ordering & Table Booking", "AI Chatbot Recommendations", "Secure Admin Dashboard", "Real-time Revenue Monitor", "Flying Cart Animation"]
   },
   {
     title: "Grilli Restaurant Website",
