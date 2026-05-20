@@ -37,7 +37,7 @@ function ExperienceEducation() {
       institution: 'Institute of Technology University of Moratuwa (ITUM)',
       period: '2023 - 2026',
       location: 'Sri Lanka, Colombo',
-      description: 'Pursuing degree in Information Technology with focus on software development',
+      description: 'Pursuing Diploma in Information Technology with focus on software development',
       highlights: [
         'Mobile app development specialization',
         'Full-stack technologies',
