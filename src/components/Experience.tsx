@@ -15,6 +15,19 @@ function ExperienceEducation() {
         'Built scalable mobile solutions with Git version control',
         'Collaborated with teams to deliver enterprise-level applications'
       ]
+    },
+    {
+      company: 'Sri Lanka Ports Authority',
+      position: 'Intern Software Engineer',
+      period: 'Dec 2025 - Jun 2026',
+      location: 'Sri Lanka, Colombo',
+      description: 'Developed enterprise-level integration modules and enhanced role-based UI/UX for the EDDS platform',
+      achievements: [
+        'Built a New Main File Integration module within the enterprise EDDS platform',
+        'Enhanced role-based UI/UX across dashboards and folder management screens',
+        'Validated API communication using Postman before each system deployment',
+        'Resolved bugs in legacy Angular codebase without breaking existing features'
+      ]
     }
   ];
 
@@ -67,7 +80,7 @@ function ExperienceEducation() {
           Work Experience
         </motion.h2>
 
-        <div className="grid grid-cols-1 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
           {experiences.map((job, index) => (
             <motion.div
               key={index}
