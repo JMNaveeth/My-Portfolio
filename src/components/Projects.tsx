@@ -24,7 +24,7 @@ const projects: Project[] = [
   },
   {
     title: "Luxe Bite",
-    description: "Built a full-stack restaurant web app with online ordering, table booking, AI chatbot recommendations, and a flying cart animation for a premium experience.",
+    description: "Luxe Bite is a premium, full-stack restaurant application built with React and Supabase",
     image: "/luxebite.png",
     technologies: ["React 18", "TypeScript", "Vite", "Tailwind CSS", "Supabase (PostgreSQL)", "Framer Motion"],
     liveUrl: "https://luxebite.demo",
