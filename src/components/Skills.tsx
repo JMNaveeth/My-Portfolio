@@ -2,14 +2,14 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { useState, useRef } from 'react';
 import {
   FaReact, FaNodeJs, FaDatabase, FaCloud, FaMobile, FaTools,
-  FaPython, FaDocker, FaGitAlt, FaHtml5, FaCss3Alt, FaJava,
-  FaAws, FaAndroid, FaFigma, FaGithub
+  FaPython, FaDocker, FaGitAlt, FaHtml5, FaCss3Alt,
+  FaAws, FaFigma, FaGithub
 } from 'react-icons/fa';
 import {
   SiTypescript, SiFlutter, SiMongodb, SiMysql, SiFirebase,
   SiSupabase, SiTailwindcss, SiVite, SiNextdotjs, SiExpress,
   SiDart, SiPostgresql, SiFramer, SiNetlify, SiVercel,
-  SiJavascript, SiCplusplus, SiPhp
+  SiJavascript
 } from 'react-icons/si';
 
 interface Skill {
@@ -122,7 +122,7 @@ const allSkillNames = [
   'React Native', 'Figma', 'MySQL', 'Vercel', 'JavaScript', 'HTML5', 'CSS3'
 ];
 
-function SkillCard({ category, skills, categoryIcon, accentColor, glowColor, borderColor, index }: SkillCategory & { index: number }) {
+function SkillCard({ category, skills, categoryIcon, accentColor, borderColor, index }: SkillCategory & { index: number }) {
   const [hovered, setHovered] = useState<string | null>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
