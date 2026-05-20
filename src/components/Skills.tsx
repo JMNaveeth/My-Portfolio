@@ -156,18 +156,21 @@ function SkillCard({ category, skills, categoryIcon, accentColor, glowColor, bor
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ rotateX, rotateY, transformPerspective: 1000 }}
-      className={`relative group bg-gradient-to-br from-gray-900/90 via-gray-900 to-gray-950 rounded-2xl p-6 border ${borderColor} shadow-2xl ${glowColor} hover:shadow-2xl transition-all duration-500 cursor-default`}
+      className={`relative group p-6 rounded-2xl border ${borderColor} hover:border-current/40 shadow-2xl transition-all duration-500 cursor-default ${accentColor}`}
     >
-      {/* Glow Orb */}
-      <div className={`absolute -inset-0.5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm bg-gradient-to-br from-current to-transparent ${accentColor} pointer-events-none`} />
+      {/* Dynamic Outer Glow Orb (renders behind the dark background) */}
+      <div className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-md bg-gradient-to-br from-current to-transparent pointer-events-none z-0" />
 
-      {/* Glass shimmer */}
-      <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
+      {/* Solid Dark Card Background (covers the glow orb inside, keeping content high-contrast) */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 rounded-2xl z-10 pointer-events-none" />
+
+      {/* Glass shimmer overlay */}
+      <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none z-15">
         <div className="absolute -top-24 -left-24 w-48 h-48 bg-white/5 rounded-full blur-2xl group-hover:translate-x-8 group-hover:translate-y-8 transition-transform duration-700" />
       </div>
 
       {/* Header */}
-      <div className="flex items-center gap-3 mb-5 relative z-10">
+      <div className="flex items-center gap-3 mb-5 relative z-20">
         <motion.div
           animate={{ rotate: [0, 360] }}
           transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
@@ -183,7 +186,7 @@ function SkillCard({ category, skills, categoryIcon, accentColor, glowColor, bor
       </div>
 
       {/* Skills Grid */}
-      <div className="grid grid-cols-2 gap-2 relative z-10">
+      <div className="grid grid-cols-2 gap-2 relative z-20">
         {skills.map((skill, i) => (
           <motion.div
             key={skill.name}
@@ -196,12 +199,12 @@ function SkillCard({ category, skills, categoryIcon, accentColor, glowColor, bor
             onHoverEnd={() => setHovered(null)}
             className="group/skill relative"
           >
-            <div className={`flex items-center gap-2 px-2.5 py-2 rounded-xl bg-gray-800/60 border border-gray-700/40 hover:border-gray-600/60 transition-all duration-200 hover:bg-gray-800/90`}>
+            <div className="flex items-center gap-2 px-2.5 py-2 rounded-xl bg-gray-800/40 border border-gray-700/30 hover:border-gray-600/50 transition-all duration-200 hover:bg-gray-850">
               <span className={`text-base ${skill.color} flex-shrink-0`}>{skill.icon}</span>
               <div className="flex-1 min-w-0">
                 <p className="text-xs font-medium text-gray-200 truncate">{skill.name}</p>
                 {/* Proficiency mini bar */}
-                <div className="w-full h-0.5 bg-gray-700/60 rounded-full mt-1 overflow-hidden">
+                <div className="w-full h-0.5 bg-gray-800 rounded-full mt-1 overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: `${skill.level}%` }}
